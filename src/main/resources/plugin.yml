@@ -1,4 +1,4 @@
 name: BiryeongtrainPluginTemplate
 version: '${version}'
-main: net.biryeongtrain.biryeongtrainplugintemplate.BiryeongtrainPluginTemplate
+main: net.biryeongtrain.qfSidebarAPI.qfSidebarAPI
 api-version: 1.19
