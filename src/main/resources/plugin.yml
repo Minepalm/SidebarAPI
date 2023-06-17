@@ -1,0 +1,4 @@
+name: BiryeongtrainPluginTemplate
+version: '${version}'
+main: net.biryeongtrain.biryeongtrainplugintemplate.BiryeongtrainPluginTemplate
+api-version: 1.19
