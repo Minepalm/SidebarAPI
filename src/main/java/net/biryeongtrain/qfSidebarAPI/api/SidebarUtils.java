@@ -7,8 +7,8 @@ import org.bukkit.entity.Player;
 
 import java.util.function.Consumer;
 
+@SuppressWarnings("unused")
 public final class SidebarUtils {
-    private SidebarUtils() {};
 
     public static Sidebar create(Component component, Sidebar.Priority priority, Consumer<LineBuilder> lineBuilderConsumer) {
         var sidebar = new Sidebar(component, priority);

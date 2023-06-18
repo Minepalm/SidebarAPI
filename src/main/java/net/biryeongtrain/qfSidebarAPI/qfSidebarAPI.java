@@ -1,17 +1,17 @@
 package net.biryeongtrain.qfSidebarAPI;
 
-import it.unimi.dsi.fastutil.objects.Object2ObjectMap;
-import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
-import net.biryeongtrain.qfSidebarAPI.impl.SidebarHolder;
+import net.biryeongtrain.qfSidebarAPI.impl.event.SidebarEvent;
+import net.kyori.adventure.text.TextComponent;
+import net.kyori.adventure.text.TranslatableComponent;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.scores.*;
+import net.minecraft.world.scores.Objective;
+import net.minecraft.world.scores.PlayerTeam;
+import net.minecraft.world.scores.Scoreboard;
 import net.minecraft.world.scores.criteria.ObjectiveCriteria;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 public final class qfSidebarAPI extends JavaPlugin {
     public static final List<PlayerTeam> TEAMS = new ArrayList<>();
@@ -20,7 +20,6 @@ public final class qfSidebarAPI extends JavaPlugin {
     public static final String OBJECTIVE_NAME = "■SidebarApiObj";
     public static final String TEAM_NAME = "■SidebarApi-";
     public static final Objective SCOREBOARD_OBJECTIVE = new Objective(SCOREBOARD, OBJECTIVE_NAME, ObjectiveCriteria.DUMMY, Component.literal("엄"), ObjectiveCriteria.RenderType.INTEGER);
-    public static final Object2ObjectMap<UUID, SidebarHolder> SIDEBAR_HOLDERS = new Object2ObjectOpenHashMap<>();
 
     @Override
     public void onEnable() {
@@ -33,10 +32,26 @@ public final class qfSidebarAPI extends JavaPlugin {
             TEAMS.add(team);
             FAKE_PLAYERS.add(fakePlayerName);
         }
+        getServer().getPluginManager().registerEvents(new SidebarEvent(), this);
     }
 
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+    }
+
+    public static Objective getScoreboardObjective(net.kyori.adventure.text.Component component) {
+        Component mcComponent = convertAsMCComponent(component);
+        return new Objective(SCOREBOARD, OBJECTIVE_NAME, ObjectiveCriteria.DUMMY, mcComponent, ObjectiveCriteria.RenderType.INTEGER);
+    }
+
+    public static Component convertAsMCComponent(net.kyori.adventure.text.Component component) {
+        Component mcComponent = null;
+        if (component instanceof TextComponent textComponent) {
+            mcComponent = Component.literal(textComponent.content());
+        }  else if (component instanceof TranslatableComponent translatableComponent) {
+            mcComponent = Component.translatable(translatableComponent.key());
+        }
+        return mcComponent;
     }
 }

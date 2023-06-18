@@ -1,11 +1,12 @@
 package net.biryeongtrain.qfSidebarAPI.impl;
 
 import net.biryeongtrain.qfSidebarAPI.api.SidebarInterface;
-import net.biryeongtrain.qfSidebarAPI.qfSidebarAPI;
+import net.biryeongtrain.qfSidebarAPI.api.SidebarStorage;
 import org.bukkit.entity.Player;
 
 import java.util.Set;
 
+@SuppressWarnings("unused")
 public interface SidebarHolder {
     void sidebarApi$add(SidebarInterface sidebar);
     void sidebarApi$remove(SidebarInterface sidebar);
@@ -19,6 +20,6 @@ public interface SidebarHolder {
     void sidebarApi$updateState(boolean tick);
 
     static SidebarHolder of(Player player) {
-        return qfSidebarAPI.SIDEBAR_HOLDERS.get(player.getUniqueId());
+        return SidebarStorage.SIDEBAR_HOLDERS.get(player);
     }
 }

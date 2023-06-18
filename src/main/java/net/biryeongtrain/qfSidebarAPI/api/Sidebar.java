@@ -12,6 +12,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.*;
 import java.util.function.Consumer;
 
+@SuppressWarnings("unused")
 public class Sidebar implements SidebarInterface {
 
     protected List<SidebarLine> elements = new ArrayList<>();
@@ -44,7 +45,7 @@ public class Sidebar implements SidebarInterface {
         this.priority = priority;
         if (this.isActive) {
             for (Player player : this.players) {
-                //TODO : add sidebar util
+                SidebarUtils.updatePriorities(player, this);
             }
         }
     }

@@ -1,22 +1,35 @@
 package net.biryeongtrain.qfSidebarAPI.impl.event;
 
+import com.destroystokyo.paper.event.server.ServerTickEndEvent;
+import net.biryeongtrain.qfSidebarAPI.api.SidebarInterface;
+import net.biryeongtrain.qfSidebarAPI.api.SidebarStorage;
 import net.biryeongtrain.qfSidebarAPI.impl.SidebarHolderImpl;
-import net.biryeongtrain.qfSidebarAPI.qfSidebarAPI;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
-public class SidebarEvent {
+import java.util.HashSet;
+
+public class SidebarEvent implements Listener {
     @EventHandler
     public void onPlayerJoined(PlayerJoinEvent event) {
         Player player = event.getPlayer();
-        qfSidebarAPI.SIDEBAR_HOLDERS.put(player.getUniqueId(), new SidebarHolderImpl(player));
+        SidebarStorage.SIDEBAR_HOLDERS.put(player, new SidebarHolderImpl(player));
     }
 
     @EventHandler
     public void onPlayerLeave(PlayerQuitEvent event) {
         Player player = event.getPlayer();
+        var instance = SidebarStorage.SIDEBAR_HOLDERS.get(player);
+        for (SidebarInterface sidebar : new HashSet<>(instance.sidebarApi$sidebars)) {
+            sidebar.disconnected(player);
+        }
+    }
 
+    @EventHandler
+    public void onPlayerTick(ServerTickEndEvent event) {
+        SidebarStorage.SIDEBAR_HOLDERS.forEach((player, sidebar) -> sidebar.sidebarApi$updateState(true));
     }
 }
