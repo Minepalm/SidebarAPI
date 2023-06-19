@@ -3,3 +3,6 @@ install:
   - chmod +x ./gradlew
   - ./gradlew shadowJar
   - ./gradlew reobfJar
+  - ./gradlew generateMetadataFileForMavenPublication
+  - ./gradlew publishMavenPublicationToMavenLocal
+  - ./gradlew publishToMavenLocal
