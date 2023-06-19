@@ -1,1 +1,4 @@
 jdk: openjdk17
+install:
+  - ./gradlew shadowJar
+  - ./gradlew reobfJar
