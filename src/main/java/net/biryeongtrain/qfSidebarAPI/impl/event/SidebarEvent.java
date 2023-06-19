@@ -3,7 +3,7 @@ package net.biryeongtrain.qfSidebarAPI.impl.event;
 import com.destroystokyo.paper.event.server.ServerTickEndEvent;
 import net.biryeongtrain.qfSidebarAPI.api.SidebarInterface;
 import net.biryeongtrain.qfSidebarAPI.api.SidebarStorage;
-import net.biryeongtrain.qfSidebarAPI.impl.SidebarHolderImpl;
+import net.biryeongtrain.qfSidebarAPI.impl.holder.SidebarHolderImpl;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

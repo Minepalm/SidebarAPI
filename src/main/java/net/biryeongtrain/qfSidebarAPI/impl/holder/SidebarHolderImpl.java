@@ -1,4 +1,4 @@
-package net.biryeongtrain.qfSidebarAPI.impl;
+package net.biryeongtrain.qfSidebarAPI.impl.holder;
 
 import net.biryeongtrain.qfSidebarAPI.api.SidebarInterface;
 import net.biryeongtrain.qfSidebarAPI.api.lines.ImmutableSidebarLine;

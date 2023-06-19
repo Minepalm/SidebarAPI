@@ -5,6 +5,7 @@ import lombok.Setter;
 import net.biryeongtrain.qfSidebarAPI.api.lines.LineBuilder;
 import net.biryeongtrain.qfSidebarAPI.api.lines.SidebarLine;
 import net.biryeongtrain.qfSidebarAPI.api.lines.SimpleSidebarLine;
+import net.biryeongtrain.qfSidebarAPI.impl.utils.SidebarUtils;
 import net.kyori.adventure.text.Component;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.Nullable;

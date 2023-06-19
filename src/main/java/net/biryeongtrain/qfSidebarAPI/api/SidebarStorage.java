@@ -2,7 +2,7 @@ package net.biryeongtrain.qfSidebarAPI.api;
 
 import it.unimi.dsi.fastutil.objects.Object2ObjectMap;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
-import net.biryeongtrain.qfSidebarAPI.impl.SidebarHolderImpl;
+import net.biryeongtrain.qfSidebarAPI.impl.holder.SidebarHolderImpl;
 import org.bukkit.entity.Player;
 
 @SuppressWarnings("unused")

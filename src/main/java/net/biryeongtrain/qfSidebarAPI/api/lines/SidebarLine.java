@@ -15,15 +15,15 @@ public interface SidebarLine {
     int getValue();
 
     /**
-     * Changes value of sidebar line. Used by {@Code LineBuilder}
+     * Changes value of sidebar line. Used by {@code LineBuilder}
      */
     boolean setValue(int value);
 
     /**
      * Gets text for selected player. Uses
      *
-     * @param player Player's ServerPlayNetworkHandler
-     * @return Text displayed for player
+     * @param player Player
+     * @return Component displayed for player
      */
     Component getComponent(Player player);
 
@@ -43,7 +43,7 @@ public interface SidebarLine {
      * Quick way to create SidebarLine instance with more advanced text building
      *
      * @param value Scoreboard value
-     * @param textBuilder Function creating text
+     * @param textBuilder Function creating component
      * @return SidebarLine
      */
     static SidebarLine create(int value, Function<@Nullable Player, Component> textBuilder) {

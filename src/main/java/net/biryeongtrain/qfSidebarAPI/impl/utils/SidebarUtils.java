@@ -1,7 +1,10 @@
-package net.biryeongtrain.qfSidebarAPI.api;
+package net.biryeongtrain.qfSidebarAPI.impl.utils;
 
+import net.biryeongtrain.qfSidebarAPI.api.ScrollableSidebar;
+import net.biryeongtrain.qfSidebarAPI.api.Sidebar;
+import net.biryeongtrain.qfSidebarAPI.api.SidebarInterface;
 import net.biryeongtrain.qfSidebarAPI.api.lines.LineBuilder;
-import net.biryeongtrain.qfSidebarAPI.impl.SidebarHolder;
+import net.biryeongtrain.qfSidebarAPI.impl.holder.SidebarHolder;
 import net.kyori.adventure.text.Component;
 import org.bukkit.entity.Player;
 

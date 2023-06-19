@@ -1,4 +1,4 @@
-name: BiryeongtrainPluginTemplate
+name: QfSidebarAPI
 version: '${version}'
 main: net.biryeongtrain.qfSidebarAPI.qfSidebarAPI
 api-version: 1.19
