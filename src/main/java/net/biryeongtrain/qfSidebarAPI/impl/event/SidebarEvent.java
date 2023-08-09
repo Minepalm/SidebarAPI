@@ -26,6 +26,7 @@ public class SidebarEvent implements Listener {
         for (SidebarInterface sidebar : new HashSet<>(instance.sidebarApi$sidebars)) {
             sidebar.disconnected(player);
         }
+        SidebarStorage.SIDEBAR_HOLDERS.remove(player);
     }
 
     @EventHandler
